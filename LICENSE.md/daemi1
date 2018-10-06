@@ -1,0 +1,28 @@
+def get_unique_letters(str):
+    uniqe_string = ""
+    str_list = list(str)
+    for c in str_list:
+        low_char = c.lower()
+        if low_char not in uniqe_string:
+            uniqe_string += low_char
+
+    return uniqe_string
+
+
+def read_file(file_name):
+    try:
+        with open(file_name, "r", encoding="utf-8") as Data_file:
+            texti = Data_file.read()
+            return texti
+    except FileNotFoundError:
+        print(file_name, "fannst ekki")
+        return ""
+
+
+
+my_file_name = input("file: ")
+my_str = read_file(my_file_name)
+uniqe = get_unique_letters(my_str)
+print(uniqe)
+
+
